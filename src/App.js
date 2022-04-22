@@ -6,6 +6,8 @@ import Cart from "./Products/Cart";
 import Header from "./Header/Header";
 import "./App.css";
 
+// comment
+
 function App() {
   return (
     <div className="App">
