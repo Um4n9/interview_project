@@ -6,7 +6,7 @@ import Cart from "./Products/Cart";
 import Header from "./Header/Header";
 import "./App.css";
 
-// comment to confirm 234
+// comment to confirm 23467
 
 function App() {
   return (
