@@ -1,0 +1,25 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "image": "Iphone_12.jpg",
+      "title": "first",
+      "description": "first-product dfjgdsfg dfgjd fgfd gdfgjdfg dfng dg dfjghdf gdfhg dfgdfhg dfg dfhgd fgdfhg dhg dfhg dfhgdfgh dfgjg g dfjg dgf dfh gdgh dgh dgh djg djg dj jdgf dg jdg djg djfg jhg ",
+      "price": "100"
+    },
+    {
+      "title": "tit",
+      "description": "des",
+      "price": "pri",
+      "image": "Alcatel.jpg",
+      "id": 2
+    },
+    {
+      "title": "title 3",
+      "description": "description 3",
+      "price": "price 3",
+      "image": "OnePlus_Nord_CE_2.jpg",
+      "id": 3
+    }
+  ]
+}
