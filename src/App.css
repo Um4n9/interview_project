@@ -39,7 +39,47 @@
 
 .product-list-container {
   display: flex;
-  gap: 20px;
   flex-wrap: wrap;
-  justify-content: center;
+  padding: 10px 5px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.ant-form-item-control {
+  max-width: 100%;
+}
+
+.ant-modal-body {
+  padding: 5px 20px;
+}
+.add-to-product-btn > span {
+  margin-right: 5px;
+}
+
+a {
+  cursor: pointer;
+}
+
+.add-to-product-btn {
+  padding: 0px 10px;
+  background: white;
+  color: #707070;
+  border-radius: 15px;
+  font-weight: 600;
+  text-align: center;
+  border: 1px solid #707070;
+}
+
+.add-to-product-btn:hover {
+  color: #6188ed;
+  cursor: pointer;
+  border-color: #6188ed;
+}
+
+.form-tail .ant-form-item-control-input-content {
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
 }

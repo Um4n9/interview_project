@@ -1,25 +1,39 @@
 {
   "products": [
     {
-      "id": 1,
-      "image": "Iphone_12.jpg",
-      "title": "first",
-      "description": "first-product dfjgdsfg dfgjd fgfd gdfgjdfg dfng dg dfjghdf gdfhg dfgdfhg dfg dfhgd fgdfhg dhg dfhg dfhgdfgh dfgjg g dfjg dgf dfh gdgh dgh dgh djg djg dj jdgf dg jdg djg djfg jhg ",
-      "price": "100"
+      "title": "Shoes 1",
+      "description": "Adidas for Kids",
+      "price": 3000,
+      "image": "Adidas_7.png",
+      "id": 1
     },
     {
-      "title": "tit",
-      "description": "des",
-      "price": "pri",
-      "image": "Alcatel.jpg",
+      "title": "Shoes 2",
+      "description": "Adidas for men",
+      "price": 5000,
+      "image": "Adidas_2.png",
       "id": 2
     },
     {
-      "title": "title 3",
-      "description": "description 3",
-      "price": "price 3",
-      "image": "OnePlus_Nord_CE_2.jpg",
+      "title": "Shoes 3",
+      "price": 2000,
+      "description": "Shoes 3",
+      "image": "Adidas_10.png",
       "id": 3
+    },
+    {
+      "title": "Shoes 5",
+      "price": 3500,
+      "description": "Shoes for men and weomen",
+      "image": "Adidas_8.png",
+      "id": 5
+    },
+    {
+      "title": "Shoes 6",
+      "price": 5000,
+      "description": "Temp",
+      "image": "Adidas_6.png",
+      "id": 6
     }
   ]
 }

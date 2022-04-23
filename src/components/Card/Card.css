@@ -1,0 +1,78 @@
+.card-main-wrapper {
+  width: 250px;
+  overflow: hidden;
+  position: relative;
+  margin: 5px;
+  border-radius: 5px;
+  box-shadow: 1px 2px 1px 2px #ccc;
+}
+
+.action-btn-wrapper {
+  display: flex;
+  gap: 10px;
+  position: absolute;
+  bottom: 10;
+  right: 10px;
+}
+
+.action-btn-wrapper div:hover {
+  cursor: pointer;
+}
+
+.card-img-wrapper,
+.card-img-wrapper img {
+  height: 250px;
+}
+
+.card-body {
+  margin: 5px 7px;
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #b4bcd1;
+}
+
+.card-description {
+  height: 30px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-footer {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-product-price {
+  color: darkslategray;
+  font-size: large;
+  font-weight: 600;
+}
+
+.add-to-cart-btn {
+  padding: 0px 10px;
+  background: white;
+  color: #707070;
+  border-radius: 15px;
+  font-weight: 600;
+  text-align: center;
+  border: 1px solid #707070;
+}
+
+.add-to-cart-btn:hover {
+  border: 2px solid #707070;
+}
+
+.remove-from-cart-btn {
+  padding: 0px 10px;
+  background: white;
+  color: rgb(255 0 0);
+  border-radius: 15px;
+  font-weight: 600;
+  text-align: center;
+  border: 1px solid rgb(253 62 62);
+}

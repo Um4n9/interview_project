@@ -1,42 +1,45 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "antd/dist/antd.css";
-import { Form, Input, Button } from "antd";
+import { Form, Input, Modal, Button } from "antd";
 import { Upload, message } from "antd";
 import { InboxOutlined } from "@ant-design/icons";
 import axios from "axios";
-
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 const { Dragger } = Upload;
 
 const layout = {
   labelCol: { span: 8 },
   wrapperCol: { span: 16 },
 };
+
 const tailLayout = {
   wrapperCol: { offset: 8, span: 16 },
 };
 
 const { TextArea } = Input;
 
-const AddProduct = () => {
+const EditProduct = (props) => {
   const [form] = Form.useForm();
+  const navigate = useNavigate();
 
-  const onFinish = (values) => {
-    console.log("Success:", values);
-    values = {
-      ...values,
-      image: values.image.file.name,
-    };
-    console.log("updated", values);
-    postToDb(values);
-  };
+  useEffect(() => {
+    form.setFieldsValue(props.item);
+  }, []);
 
   const postToDb = async (productObj) => {
-    let response = await axios.post(
-      "http://localhost:3001/products",
+    let response = await axios.put(
+      `http://localhost:3001/products/${props.item.id}`,
       productObj
     );
 
     console.log("response", response);
+    props.closeModal();
+    Swal.fire({
+      icon: "success",
+      type: "success",
+      text: "Product updated successfully",
+    });
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -59,18 +62,50 @@ const AddProduct = () => {
     console.log("Dropped files", e.dataTransfer.files);
   };
 
+  const onFinish = (values) => {
+    if (values.image.file) {
+      values = {
+        ...values,
+        image: values.image.file.name,
+      };
+    }
+    values.price = +values.price;
+    console.log("updated", values);
+    postToDb(values);
+    // navigate("/myProducts");
+  };
+
   return (
-    <div>
+    <Modal
+      title={props.title || "Product Details"}
+      visible={true}
+      onCancel={props.closeModal}
+      style={{ top: 20 }}
+      width={"450px"}
+      footer={[]}
+    >
       <Form
         {...layout}
         form={form}
         name="control-hooks"
-        onFinish={onFinish}
         layout={"vertical"}
+        onFinish={onFinish}
       >
         <Form.Item
           name="title"
           label="Title"
+          rules={[
+            {
+              required: true,
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
+
+        <Form.Item
+          name="price"
+          label="Price"
           rules={[
             {
               required: true,
@@ -88,18 +123,7 @@ const AddProduct = () => {
             },
           ]}
         >
-          <TextArea rows={4} />
-        </Form.Item>
-        <Form.Item
-          name="price"
-          label="Price"
-          rules={[
-            {
-              required: true,
-            },
-          ]}
-        >
-          <Input />
+          <TextArea rows={2} />
         </Form.Item>
         <Form.Item
           name="image"
@@ -117,6 +141,7 @@ const AddProduct = () => {
             action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
             onChange={onFileChange}
             onDrop={onFileDrop}
+            className={"product-file-dropper"}
           >
             <p className="ant-upload-drag-icon">
               <InboxOutlined />
@@ -126,17 +151,17 @@ const AddProduct = () => {
             </p>
           </Dragger>
         </Form.Item>
-        <Form.Item {...tailLayout}>
-          <Button type="primary" htmlType="submit">
-            Submit
-          </Button>
-          <Button htmlType="button" onClick={() => {}}>
+        <Form.Item {...tailLayout} className="form-tail">
+          <Button htmlType="button" onClick={props.closeModal}>
             Cancel
+          </Button>
+          <Button type="primary" htmlType="submit">
+            Save
           </Button>
         </Form.Item>
       </Form>
-    </div>
+    </Modal>
   );
 };
 
-export default AddProduct;
+export default EditProduct;

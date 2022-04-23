@@ -1,9 +1,8 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import AddProduct from "./Products/AddProduct";
-import ListProduct from "./Products/ListProduct";
-import Cart from "./Products/Cart";
-import Header from "./Header/Header";
+import ListProduct from "./components/Products/ListProduct";
+import MyProducts from "./components/Products/MyProducts";
+import Cart from "./components/Cart/Cart";
 import "./App.css";
 
 // comment
@@ -11,11 +10,11 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <Header />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<ListProduct />} />
-          <Route path="cart" element={<Cart />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/myProducts" element={<MyProducts />} />
         </Routes>
       </BrowserRouter>
     </div>
